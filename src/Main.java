@@ -22,8 +22,24 @@ public class Main {
         System.out.println("\n");
         System.out.println("Vamos começar. Indique em qual posição (número, sem 0 na frente) você colocará seu símbolo:");
 
-        tabuleiro = verificaJogada(player1, simbolo1, tabuleiro);
-        mostrarTabuleiro(tabuleiro);
+        byte jogadas = 0;
+
+        while(jogadas<9){
+            tabuleiro = verificaJogada(player1, simbolo1, tabuleiro);
+            mostrarTabuleiro(tabuleiro);
+            jogadas++;
+            if (vencedor(tabuleiro)){
+                System.out.println("O vencedor foi "+player1+". Parabéns!");
+                break;
+            }
+            tabuleiro = verificaJogada(player2, simbolo2, tabuleiro);
+            mostrarTabuleiro(tabuleiro);
+            jogadas++;
+            if (vencedor(tabuleiro)){
+                System.out.println("O vencedor foi "+player1+". Parabéns!");
+                break;
+            }
+        }
 
     }
 
@@ -43,9 +59,10 @@ public class Main {
     static void mostrarTabuleiro(char[][] posicao) {
         System.out.println(" " + posicao[0][0] + " | " + posicao[0][1] + " | " + posicao[0][2]);
         System.out.println("---|---|---");
-        System.out.println(" " + posicao[1][0] + " | " + posicao[1][1] + " | " + posicao[2][2]);
+        System.out.println(" " + posicao[1][0] + " | " + posicao[1][1] + " | " + posicao[1][2]);
         System.out.println("---|---|---");
         System.out.println(" " + posicao[2][0] + " | " + posicao[2][1] + " | " + posicao[2][2]);
+
     }
 
     static char[][] verificaJogada(String player, char simbolo, char[][] posicao) {
@@ -91,11 +108,13 @@ public class Main {
         }
         return posicao;
     }
-    static String vencedor(char[][] posicao) {
+
+    static boolean vencedor(char[][] posicao) {
 
         String verificaVencedor = null;
-        for (byte i = 0; i < 8; i++) {
+        boolean resultado = false;
 
+        for (byte i = 0; i < 8; i++) {
 
             switch (i) {
                 case 0:
@@ -122,16 +141,15 @@ public class Main {
                 case 7:
                     verificaVencedor = String.valueOf(posicao[2][0] + posicao[1][1] + posicao[0][2]);
                     break;
-
-
+            }
+            if (verificaVencedor.equals("XXX")) {
+                resultado= true;
+                break;
+            } else if (verificaVencedor.equals("OOO")) {
+                resultado= true;
+                break;
             }
         }
-        if (verificaVencedor.equals("XXX")) {
-            return "X";
-        } else if (verificaVencedor.equals("OOO")) {
-            return "O";
-        } else {
-            return "Deu empate";
-        }
+        return resultado;
     }
 }
