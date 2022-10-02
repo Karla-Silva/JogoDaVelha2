@@ -9,37 +9,53 @@ public class Main {
         System.out.println("Digite o nome do primeiro jogador: ");
         String player1 = scanner.next();
         char simbolo1 = 'X';
+        int vitoria1 = 0;
         System.out.println("Digite o nome do segundo jogador: ");
         String player2 = scanner.next();
         char simbolo2 = 'O';
+        int vitoria2 = 0;
         System.out.println(player1 + " seu símbolo será: " + simbolo1);
         System.out.println(player2 + " seu símbolo será: " + simbolo2);
 
-        char[][] tabuleiro = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
+        char deNovo;
+        do{
+            char[][] tabuleiro = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
 
-        System.out.println("Este será o tabuleiro do jogo:\n");
-        mostrarTabuleiro(tabuleiro);
-        System.out.println("\n");
-        System.out.println("Vamos começar. Indique em qual posição (número, sem 0 na frente) você colocará seu símbolo:");
-
-        byte jogadas = 0;
-
-        while(jogadas<9){
-            tabuleiro = verificaJogada(player1, simbolo1, tabuleiro);
+            System.out.println("Este será o tabuleiro do jogo:\n");
             mostrarTabuleiro(tabuleiro);
-            jogadas++;
-            if (vencedor(tabuleiro)){
-                System.out.println("O vencedor foi "+player1+". Parabéns!");
-                break;
+            System.out.println("\n");
+            System.out.println("Vamos começar. Indique em qual posição (número, sem 0 na frente) você colocará seu símbolo:");
+
+            byte jogadas = 0;
+
+            while(jogadas<9){
+                tabuleiro = verificaJogada(player1, simbolo1, tabuleiro);
+                jogadas++;
+                mostrarTabuleiro(tabuleiro);
+                if (vencedor(tabuleiro)){
+                    System.out.println("O vencedor foi "+player1+". Parabéns!");
+                    vitoria1++;
+                    break;
+                }
+                if(jogadas==9){
+                    System.out.println("Deu empate!");
+                    break;
+                }
+                tabuleiro = verificaJogada(player2, simbolo2, tabuleiro);
+                jogadas++;
+                mostrarTabuleiro(tabuleiro);
+                if (vencedor(tabuleiro)){
+                    System.out.println("O vencedor foi "+player1+". Parabéns!");
+                    vitoria2++;
+                    break;
+                }
             }
-            tabuleiro = verificaJogada(player2, simbolo2, tabuleiro);
-            mostrarTabuleiro(tabuleiro);
-            jogadas++;
-            if (vencedor(tabuleiro)){
-                System.out.println("O vencedor foi "+player1+". Parabéns!");
-                break;
-            }
-        }
+
+            System.out.println("Pontuação "+player1+": "+vitoria1);
+            System.out.println("Pontuação "+player2+": "+vitoria2);
+            System.out.println("Deseja jogar novamente? N-Não S-Sim");
+            deNovo = scanner.next().charAt(0);
+        }while(deNovo =='S'||deNovo=='s');
 
     }
 
