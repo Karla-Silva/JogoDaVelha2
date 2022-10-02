@@ -58,7 +58,7 @@ public class Main {
                 deNovo = scanner.next().charAt(0);
 
                 if (deNovo != 'S' && deNovo != 's' && deNovo != 'N' && deNovo != 'n') {
-                    System.out.println("Opção incorreta, tente novamente");
+                    System.err.println("Opção incorreta, tente novamente");
                 }else {
                     break;
                 }
@@ -98,38 +98,91 @@ public class Main {
             if (opcao.equals("1") || opcao.equals("2") || opcao.equals("3") || opcao.equals("4") || opcao.equals("5") || opcao.equals("6") || opcao.equals("7") || opcao.equals("8") || opcao.equals("9")) {
                 switch (opcao) {
                     case "1":
+                        if (posicao[0][0] == 'X' || posicao[0][0] == 'O'){
+                            System.err.println("Opção já preenchida");
+                            continue;
+                        } else {
                         posicao[0][0] = simbolo;
                         break;
+                        }
                     case "2":
-                        posicao[0][1] = simbolo;
-                        break;
+                        if (posicao[0][1] == 'X' || posicao[0][1] == 'O') {
+                            System.err.println("Opção já preenchida");
+                            continue;
+
+                        } else {
+                            posicao[0][1] = simbolo;
+                            break;
+                        }
                     case "3":
-                        posicao[0][2] = simbolo;
-                        break;
+                        if (posicao[0][2] == 'X' || posicao[0][2] == 'O') {
+                            System.err.println("Opção já preenchida");
+                            continue;
+
+                        } else {
+                            posicao[0][2] = simbolo;
+                            break;
+                        }
                     case "4":
-                        posicao[1][0] = simbolo;
-                        break;
+                        if (posicao[1][0] == 'X' || posicao[1][0] == 'O') {
+                            System.err.println("Opção já preenchida");
+                            continue;
+
+                        } else {
+                            posicao[1][0] = simbolo;
+                            break;
+                        }
                     case "5":
-                        posicao[1][1] = simbolo;
-                        break;
+                        if (posicao[1][1] == 'X' || posicao[1][1] == 'O') {
+                            System.err.println("Opção já preenchida");
+                            continue;
+
+                        } else {
+                            posicao[1][1] = simbolo;
+                            break;
+                        }
                     case "6":
-                        posicao[1][2] = simbolo;
-                        break;
+                        if (posicao[1][2] == 'X' || posicao[1][2] == 'O') {
+                            System.err.println("Opção já preenchida");
+                            continue;
+
+                        } else {
+                            posicao[1][2] = simbolo;
+                            break;
+                        }
                     case "7":
-                        posicao[2][0] = simbolo;
-                        break;
+                        if (posicao[2][0] == 'X' || posicao[2][0] == 'O') {
+                            System.err.println("Opção já preenchida");
+                            continue;
+
+                        } else {
+                            posicao[2][0] = simbolo;
+                            break;
+                        }
                     case "8":
-                        posicao[2][1] = simbolo;
-                        break;
+                        if (posicao[2][1] == 'X' || posicao[2][1] == 'O') {
+                            System.err.println("Opção já preenchida");
+                            continue;
+
+                        } else {
+                            posicao[2][1] = simbolo;
+                            break;
+                        }
                     case "9":
-                        posicao[2][2] = simbolo;
-                        break;
+                        if (posicao[2][2] == 'X' || posicao[2][2] == 'O') {
+                            System.err.println("Opção já preenchida");
+                            continue;
+
+                        } else {
+                            posicao[2][2] = simbolo;
+                            break;
+                        }
                     default:
                         break;
                 }
                 break;
             } else {
-                System.out.println("Opção incorreta, tente novamente");
+                System.err.println("Opção incorreta, tente novamente");
             }
         }
         return posicao;
