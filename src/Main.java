@@ -91,4 +91,47 @@ public class Main {
         }
         return posicao;
     }
+    static String vencedor(char[][] posicao) {
+
+        String verificaVencedor = null;
+        for (byte i = 0; i < 8; i++) {
+
+
+            switch (i) {
+                case 0:
+                    verificaVencedor = String.valueOf(posicao[0][0] + posicao[0][1] + posicao[0][2]);
+                    break;
+                case 1:
+                    verificaVencedor = String.valueOf(posicao[1][0] + posicao[1][1] + posicao[1][2]);
+                    break;
+                case 2:
+                    verificaVencedor = String.valueOf(posicao[2][0] + posicao[2][1] + posicao[2][2]);
+                    break;
+                case 3:
+                    verificaVencedor = String.valueOf(posicao[0][0] + posicao[1][0] + posicao[2][0]);
+                    break;
+                case 4:
+                    verificaVencedor = String.valueOf(posicao[0][1] + posicao[1][1] + posicao[2][1]);
+                    break;
+                case 5:
+                    verificaVencedor = String.valueOf(posicao[0][2] + posicao[1][2] + posicao[2][2]);
+                    break;
+                case 6:
+                    verificaVencedor = String.valueOf(posicao[0][0] + posicao[1][1] + posicao[2][2]);
+                    break;
+                case 7:
+                    verificaVencedor = String.valueOf(posicao[2][0] + posicao[1][1] + posicao[0][2]);
+                    break;
+
+
+            }
+        }
+        if (verificaVencedor.equals("XXX")) {
+            return "X";
+        } else if (verificaVencedor.equals("OOO")) {
+            return "O";
+        } else {
+            return "Deu empate";
+        }
+    }
 }
