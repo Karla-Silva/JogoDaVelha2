@@ -53,8 +53,18 @@ public class Main {
 
             System.out.println("Pontuação "+player1+": "+vitoria1);
             System.out.println("Pontuação "+player2+": "+vitoria2);
-            System.out.println("Deseja jogar novamente? N-Não S-Sim");
-            deNovo = scanner.next().charAt(0);
+            while(true) {
+                System.out.println("Deseja jogar novamente? N-Não S-Sim");
+                deNovo = scanner.next().charAt(0);
+
+                if (deNovo != 'S' && deNovo != 's' && deNovo != 'N' && deNovo != 'n') {
+                    System.out.println("Opção incorreta, tente novamente");
+                }else {
+                    break;
+                }
+
+            }
+
         }while(deNovo =='S'||deNovo=='s');
 
     }
@@ -84,34 +94,34 @@ public class Main {
     static char[][] verificaJogada(String player, char simbolo, char[][] posicao) {
         while (true) {
             System.out.println(player + " indique a posição da sua próxima jogada");
-            char opcao = scanner.next().charAt(0);
-            if (opcao == '1' || opcao == '2' || opcao == '3' || opcao == '4' || opcao == '5' || opcao == '6' || opcao == '7' || opcao == '8' || opcao == '9') {
+            String opcao = scanner.next();
+            if (opcao.equals("1") || opcao.equals("2") || opcao.equals("3") || opcao.equals("4") || opcao.equals("5") || opcao.equals("6") || opcao.equals("7") || opcao.equals("8") || opcao.equals("9")) {
                 switch (opcao) {
-                    case '1':
+                    case "1":
                         posicao[0][0] = simbolo;
                         break;
-                    case '2':
+                    case "2":
                         posicao[0][1] = simbolo;
                         break;
-                    case '3':
+                    case "3":
                         posicao[0][2] = simbolo;
                         break;
-                    case '4':
+                    case "4":
                         posicao[1][0] = simbolo;
                         break;
-                    case '5':
+                    case "5":
                         posicao[1][1] = simbolo;
                         break;
-                    case '6':
+                    case "6":
                         posicao[1][2] = simbolo;
                         break;
-                    case '7':
+                    case "7":
                         posicao[2][0] = simbolo;
                         break;
-                    case '8':
+                    case "8":
                         posicao[2][1] = simbolo;
                         break;
-                    case '9':
+                    case "9":
                         posicao[2][2] = simbolo;
                         break;
                     default:
