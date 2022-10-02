@@ -118,28 +118,28 @@ public class Main {
 
             switch (i) {
                 case 0:
-                    verificaVencedor = String.valueOf(posicao[0][0] + posicao[0][1] + posicao[0][2]);
+                    verificaVencedor = String.valueOf(posicao[0][0]) + String.valueOf(posicao[0][1]) + String.valueOf(posicao[0][2]);
                     break;
                 case 1:
-                    verificaVencedor = String.valueOf(posicao[1][0] + posicao[1][1] + posicao[1][2]);
+                    verificaVencedor = String.valueOf(posicao[1][0]) + String.valueOf(posicao[1][1]) + String.valueOf(posicao[1][2]);
                     break;
                 case 2:
-                    verificaVencedor = String.valueOf(posicao[2][0] + posicao[2][1] + posicao[2][2]);
+                    verificaVencedor = String.valueOf(posicao[2][0]) + String.valueOf(posicao[2][1]) + String.valueOf(posicao[2][2]);
                     break;
                 case 3:
-                    verificaVencedor = String.valueOf(posicao[0][0] + posicao[1][0] + posicao[2][0]);
+                    verificaVencedor = String.valueOf(posicao[0][0]) + String.valueOf(posicao[1][0]) + String.valueOf(posicao[2][0]);
                     break;
                 case 4:
-                    verificaVencedor = String.valueOf(posicao[0][1] + posicao[1][1] + posicao[2][1]);
+                    verificaVencedor = String.valueOf(posicao[0][1]) + String.valueOf(posicao[1][1]) + String.valueOf(posicao[2][1]);
                     break;
                 case 5:
-                    verificaVencedor = String.valueOf(posicao[0][2] + posicao[1][2] + posicao[2][2]);
+                    verificaVencedor = String.valueOf(posicao[0][2]) + String.valueOf(posicao[1][2]) + String.valueOf(posicao[2][2]);
                     break;
                 case 6:
-                    verificaVencedor = String.valueOf(posicao[0][0] + posicao[1][1] + posicao[2][2]);
+                    verificaVencedor = String.valueOf(posicao[0][0]) + String.valueOf(posicao[1][1]) + String.valueOf(posicao[2][2]);
                     break;
                 case 7:
-                    verificaVencedor = String.valueOf(posicao[2][0] + posicao[1][1] + posicao[0][2]);
+                    verificaVencedor = String.valueOf(posicao[2][0]) + String.valueOf(posicao[1][1]) + String.valueOf(posicao[0][2]);
                     break;
             }
             if (verificaVencedor.equals("XXX")) {
