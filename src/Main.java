@@ -57,7 +57,7 @@ public class Main {
                 System.out.println("Deseja jogar novamente? N-Não S-Sim");
                 deNovo = scanner.next().charAt(0);
 
-                if (deNovo != 'S' && deNovo != 's' && deNovo != 'N' && deNovo != 'n') {
+                if (deNovo !='S' && deNovo != 's' && deNovo != 'N' && deNovo != 'n') {
                     System.err.println("Opção incorreta, tente novamente");
                 }else {
                     break;
@@ -231,4 +231,5 @@ public class Main {
         }
         return resultado;
     }
+
 }
