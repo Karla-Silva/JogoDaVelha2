@@ -1,8 +1,6 @@
 import java.util.Scanner;
-
 public class Main {
     static Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
         inicio();
 
@@ -17,6 +15,7 @@ public class Main {
         System.out.println(player1 + " seu símbolo será: " + simbolo1);
         System.out.println(player2 + " seu símbolo será: " + simbolo2);
 
+        boolean vencedor=false;
         char deNovo;
         do{
             char[][] tabuleiro = {{'1', '2', '3'}, {'4', '5', '6'}, {'7', '8', '9'}};
@@ -35,10 +34,12 @@ public class Main {
                 if (vencedor(tabuleiro)){
                     System.out.println("O vencedor foi "+player1+". Parabéns!");
                     vitoria1++;
+                    vencedor = true;
                     break;
                 }
                 if(jogadas==9){
                     System.out.println("Deu empate!");
+                    vencedor = false;
                     break;
                 }
                 tabuleiro = verificaJogada(player2, simbolo2, tabuleiro);
@@ -47,14 +48,20 @@ public class Main {
                 if (vencedor(tabuleiro)){
                     System.out.println("O vencedor foi "+player1+". Parabéns!");
                     vitoria2++;
+                    vencedor = true;
                     break;
                 }
             }
 
             System.out.println("Pontuação "+player1+": "+vitoria1);
             System.out.println("Pontuação "+player2+": "+vitoria2);
+
             while(true) {
-                System.out.println("Deseja jogar novamente? N-Não S-Sim");
+                if(vencedor){
+                    System.out.println("Revanche? N-Não S-Sim");
+                }else{
+                    System.out.println("Deseja jogar novamente? N-Não S-Sim");
+                }
                 deNovo = scanner.next().charAt(0);
 
                 if (deNovo !='S' && deNovo != 's' && deNovo != 'N' && deNovo != 'n') {
@@ -62,11 +69,8 @@ public class Main {
                 }else {
                     break;
                 }
-
             }
-
         }while(deNovo =='S'||deNovo=='s');
-
     }
 
     private static void inicio() {
@@ -88,7 +92,6 @@ public class Main {
         System.out.println(" " + posicao[1][0] + " | " + posicao[1][1] + " | " + posicao[1][2]);
         System.out.println("---|---|---");
         System.out.println(" " + posicao[2][0] + " | " + posicao[2][1] + " | " + posicao[2][2]);
-
     }
 
     static char[][] verificaJogada(String player, char simbolo, char[][] posicao) {
@@ -189,7 +192,6 @@ public class Main {
     }
 
     static boolean vencedor(char[][] posicao) {
-
         String verificaVencedor = null;
         boolean resultado = false;
 
